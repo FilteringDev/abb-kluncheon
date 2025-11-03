@@ -1,0 +1,21 @@
+// ==UserScript==
+// @name         abb-kluncheon
+// @encoding     utf-8
+// @namespace    https://github.com/FilteringDev/abb-kluncheon
+// @homepageURL  https://github.com/FilteringDev/abb-kluncheon
+// @supportURL   https://github.com/FilteringDev/abb-kluncheon/issues
+// @updateURL    https://cdn.jsdelivr.net/npm/@filteringdev/abb-kluncheon@latest/dist/abb-kluncheon.user.js
+// @downloadURL  https://cdn.jsdelivr.net/npm/@filteringdev/abb-kluncheon@latest/dist/abb-kluncheon.user.js
+// @license      Apache-2.0
+//
+// @version      1.0.0
+// @author       PiQuark6046 and contributors
+//
+// @match        *://klauncher.kr/*
+// @match        *://*.klauncher.kr/*
+//
+// @description     abb-kluncheon는 klauncher.kr에 있는 난독화되어 있는 애드블록 탐지 스크립트를 우회하는 유저스크립트입니다.
+//
+// @grant        unsafeWindow
+// @run-at       document-start
+// ==/UserScript==

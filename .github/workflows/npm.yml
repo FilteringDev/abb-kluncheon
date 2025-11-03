@@ -1,0 +1,45 @@
+name: 'Publish to npm'
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Set up NodeJS LTS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Update npm package manager
+        run: npm install -g npm@latest
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install dependencies
+        run: npm i
+      - name: Build
+        run: npm run build
+      - name : Publish to npm
+        run: npm publish --access public
+  purge:
+    name: Purge jsdelivr cache
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Set up NodeJS LTS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+      - name: Purge jsdelivr cache
+        uses: FilteringDev/jsdelivr-purge-npm@1.0.7
+        with:
+          package: '@filteringdev/tinyshield'
+          disttag: 'latest'
+    needs: [publish]
