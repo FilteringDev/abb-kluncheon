@@ -5,9 +5,9 @@ declare const unsafeWindow: unsafeWindow
 const Win = typeof unsafeWindow !== 'undefined' ? unsafeWindow : window
 
 let AdblockDetectPositiveRegExps: RegExp[][] = [[
-  /if *\( *typeof *window *\[ *[A-Za-z0-9]+\( *[0-9]+ *\) *\] *!== *[A-Za-z0-9]+\( *[0-9]+ *\) *\) *{/,
-  /const *[a-zA-Z0-9]+ *= *setTimeout *\( *\( *\) *=> *{/,
-  /typeof *[A-Za-z0-9]+ *!== *[A-Za-z0-9]+ *\( *[0-9a-f]+ *\) *\|\| *[A-Za-z0-9]+ *===? *void *0 *\|\| *[A-Za-z0-9]+ *===? *null *\|\| *[A-Za-z0-9]+ *===? *('|")+ *\)/
+  /if *\( *typeof *window *\[ *\w+\( *\d+ *\) *\] *!== *\w+\( *\d+ *\) *\) *{/,
+  /const *\w+ *= *setTimeout *\( *\( *\) *=> *{/,
+  /typeof *\w+ *!== *\w+ *\( *[\da-f]+ *\) *\|\| *\w+ *===? *void *0 *\|\| *\w+ *===? *null *\|\| *\w+ *===? *('|")+ *\)/
 ]]
 
 Win.Promise = new Proxy(Win.Promise, {
